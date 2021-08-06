@@ -8,7 +8,7 @@ import { CategoryModule } from './categories/category.module';
 @Module({
   imports: [
     CategoryModule,
-    MongooseModule.forRoot('mongodb+srv://delivery:th14go@L21@cluster0.ybtur.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    MongooseModule.forRoot('mongodb+srv://delivery:th14go@L21@cluster0.ybtur.mongodb.net/delivery?retryWrites=true&w=majority')
   ],
   controllers: [AppController],
   providers: [AppService],

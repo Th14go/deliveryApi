@@ -6,8 +6,7 @@ import { Category } from './category';
 @Injectable()
 export class CategoryService {
 
-    constructor(
-        @InjectModel('Category') private readonly categoryModel: Model<Category>) { }
+    constructor(@InjectModel('Category') private readonly categoryModel: Model<Category>) { }
 
 
     async getAll() {

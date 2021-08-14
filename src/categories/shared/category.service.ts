@@ -24,7 +24,7 @@ export class CategoryService {
     }
 
     async update(id: string, category: Category) {
-        return await this.categoryModel.findByIdAndUpdate(id, category);
+        return await this.categoryModel.findByIdAndUpdate(id, category, { new : true});
     }
 
     async delete(id: string) {

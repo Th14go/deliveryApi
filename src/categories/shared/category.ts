@@ -1,5 +1,5 @@
-import { Document} from 'mongoose';
+import { Document } from 'mongoose';
 
 export class Category extends Document {
-    name: string;
+  name: string;
 }

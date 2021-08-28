@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { EntregaController } from './entregas.controller';
-import { EntregaSchema } from './schema/entrega.schema';
+import { EntregaSchema } from './schemas/entrega.schema';
 import { EntregaService } from './shared/entregas.service';
 
 @Module({

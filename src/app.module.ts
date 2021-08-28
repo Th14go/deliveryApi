@@ -3,14 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { MongooseModule } from '@nestjs/mongoose';
-import { CategoryModule } from './categories/category.module';
-import { CardapioModule } from './cardapio/cardapio.module';
+import { CategoriaModule } from './categorias/categoria.module';
+import { CardapioModule } from './cardapios/cardapio.module';
 import { EntregaModule } from './entregas/entregas.module';
 import { HorarioModule } from './horarios/horarios.module';
 
 @Module({
   imports: [
-    CategoryModule,
+    CategoriaModule,
     CardapioModule,
     EntregaModule,
     HorarioModule,

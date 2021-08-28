@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { HorarioController } from './horarios.controlles';
 import { HorarioService } from './shared/horarios.service';
-import { HorarioSchema } from './schema/horarios.schema';
+import { HorarioSchema } from './schemas/horarios.schema';
 
 @Module({
   imports: [

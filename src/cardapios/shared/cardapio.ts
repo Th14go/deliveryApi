@@ -5,4 +5,5 @@ export class Cardapio extends Document {
   preco: number;
   descricao: string;
   fotoUrl: string;
+  categoria: string;
 }

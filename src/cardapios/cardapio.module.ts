@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CardapioController } from './cardapio.controller';
 
-import { CardapioSchema } from './schema/cardapio.schema';
+import { CardapioSchema } from './schemas/cardapio.schema';
 import { CardapioService } from './shared/cardapio.service';
 
 @Module({

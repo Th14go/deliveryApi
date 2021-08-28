@@ -10,7 +10,7 @@ import {
 import { Cardapio } from './shared/cardapio';
 import { CardapioService } from './shared/cardapio.service';
 
-@Controller('cardapios')
+@Controller('cardapio')
 export class CardapioController {
   constructor(private cardapioService: CardapioService) {}
 

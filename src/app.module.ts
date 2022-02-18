@@ -15,7 +15,7 @@ import { HorarioModule } from './horarios/horarios.module';
     EntregaModule,
     HorarioModule,
     MongooseModule.forRoot(
-      'mongodb+srv://delivery:th14go@L21@cluster0.ybtur.mongodb.net/delivery?retryWrites=true&w=majority',
+      'mongodb+srv://delivery:th14go@L22@cluster0.ybtur.mongodb.net/delivery?retryWrites=true&w=majority',
       { useFIndAndModify: true }
     ),
   ],

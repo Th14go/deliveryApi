@@ -10,7 +10,7 @@ export class CardapioService {
   ) {}
 
   async getAll() {
-    return await this.cardapioModel.find().exec();
+    return await this.cardapioModel.find().populate('categoria').exec();
   }
 
   async getbyId(id: string) {

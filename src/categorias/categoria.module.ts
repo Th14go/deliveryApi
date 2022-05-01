@@ -3,13 +3,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { CategoriaSchema } from './schemas/categoria.schema';
 import { CategoriaService } from './shared/categoria.service';
-import { CategoriesController } from './categorias.controller';
+import { CategoriasController } from './categorias.controller';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: 'Categoria', schema: CategoriaSchema }]),
   ],
   providers: [CategoriaService],
-  controllers: [CategoriesController],
+  controllers: [CategoriasController],
 })
 export class CategoriaModule {}

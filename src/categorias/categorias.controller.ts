@@ -11,7 +11,7 @@ import { Categoria } from './shared/categoria';
 import { CategoriaService } from './shared/categoria.service';
 
 @Controller('categoria')
-export class CategoriesController {
+export class CategoriasController {
   constructor(private categoriaService: CategoriaService) {}
 
   @Get()

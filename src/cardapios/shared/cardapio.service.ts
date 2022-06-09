@@ -3,6 +3,9 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Cardapio } from './cardapio';
 
+import { unlinkSync } from 'fs';
+import { join } from 'path';
+
 @Injectable()
 export class CardapioService {
   constructor(
@@ -17,12 +20,28 @@ export class CardapioService {
     return await this.cardapioModel.findById(id).exec();
   }
 
-  async create(cardapio: Cardapio) {
+  private getFotoUrl(filename: string){
+    return `http://localhost:3000/${filename}`;
+  }
+
+  async create(cardapio: Cardapio, file: Express.Multer.File) {
+    if (file){
+      cardapio.fotoUrl = this.getFotoUrl(file.filename);
+    }
     const createdCardapio = new this.cardapioModel(cardapio);
     return await createdCardapio.save();
   }
 
-  async update(id: string, cardapio: Cardapio) {
+  async update(id: string, cardapio: Cardapio, file: Express.Multer.File) {
+    if (file){
+      const produto = await this.getbyId(id);
+      if (produto.fotoUrl) {
+        const imageName = produto.fotoUrl.substring(produto.fotoUrl.lastIndexOf('/') + 1);
+        const imagePath = join(__dirname, '..', '..', '..', 'uploads', imageName);
+        unlinkSync(imagePath);
+      }
+      cardapio.fotoUrl = this.getFotoUrl(file.filename);
+    }
     return await this.cardapioModel.findByIdAndUpdate(id, cardapio, {
       new: true,
     });

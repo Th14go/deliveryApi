@@ -12,8 +12,14 @@ export class CardapioService {
     @InjectModel('Cardapio') private readonly cardapioModel: Model<Cardapio>
   ) {}
 
-  async getAll() {
-    return await this.cardapioModel.find().populate('categoria').exec();
+  async getAll(query: any) {
+    const hasFilterByName = query.nome? true : false;
+    const filter= {}
+    if (hasFilterByName) {
+      filter['nome'] = { $regex: '.*' + query.nome + '.*', $options: 'i' }
+    }
+
+    return await this.cardapioModel.find(filter).populate('categoria').exec();
   }
 
   async getbyId(id: string) {
@@ -21,7 +27,7 @@ export class CardapioService {
   }
 
   private getFotoUrl(filename: string){
-    return `http://192.168.0.171:3000/${filename}`;
+    return `http://localhost:3000/${filename}`;
   }
 
   async create(cardapio: Cardapio, file: Express.Multer.File) {

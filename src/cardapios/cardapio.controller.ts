@@ -9,20 +9,22 @@ import {
   Delete,
   UseInterceptors,
   UploadedFile,
+  Req,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { Cardapio } from './shared/cardapio';
 import { CardapioService } from './shared/cardapio.service';
 import { fileFilter } from './shared/file-filter';
+import {Request} from 'express';
 
 @Controller('cardapio')
 export class CardapioController {
   constructor(private cardapioService: CardapioService) { }
 
   @Get()
-  async getAll() {
-    return await this.cardapioService.getAll();
+  async getAll(@Req() req: Request) {
+    return await this.cardapioService.getAll(req.query);
   }
   @Get(':id')
   async getById(@Param('id') id: string) {

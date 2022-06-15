@@ -1,3 +1,8 @@
+import { AuthClienteController } from './auth/auth-cliente.controller';
+import { AuthAdminController } from './auth/auth-admin.controller';
+import { AuthModule } from './auth/auth.module';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { UsuariosService } from './usuarios/shared/usuarios.service';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { ServeStaticModule } from '@nestjs/serve-static';
@@ -23,8 +28,12 @@ import { join } from 'path';
       'mongodb+srv://delivery:th14go@L22@cluster0.ybtur.mongodb.net/delivery?retryWrites=true&w=majority',
       { useFIndAndModify: true }
     ),
+    UsuariosModule,
+    AuthModule
   ],
-  controllers: [AppController],
+  controllers: [
+    AppController
+  ],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

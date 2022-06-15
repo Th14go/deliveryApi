@@ -6,10 +6,13 @@ import {
   Post,
   Put,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
+import { JwtAdminAuthGuard } from 'src/auth/shared/admin/jwt-admin-auth.guard';
 import { Categoria } from './shared/categoria';
 import { CategoriaService } from './shared/categoria.service';
 
+@UseGuards(JwtAdminAuthGuard)
 @Controller('categoria')
 export class CategoriasController {
   constructor(private categoriaService: CategoriaService) {}
